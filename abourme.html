@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Portfolio - Advanced</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #0A2342;
+            --secondary-color: #005CAA;
+            --accent-color: #1CA3EC;
+            --text-primary: #333333;
+            --text-secondary: #666666;
+            --background-light: #F4F7F9;
+            --border-color: #E1E8ED;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Arial', sans-serif;
+            line-height: 1.6;
+            background-color: var(--background-light);
+            color: var(--text-primary);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .portfolio-container {
+            max-width: 1000px;
+            margin: 2rem auto;
+            background-color: white;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 2.5rem;
+            position: relative;
+        }
+
+        .profile-image {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 6px solid rgba(255, 255, 255, 0.2);
+            margin-right: 2.5rem;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease;
+        }
+
+        .profile-image:hover {
+            transform: scale(1.05);
+        }
+
+        .header-content {
+            flex-grow: 1;
+        }
+
+        .header-content h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .header-content p {
+            font-size: 1.3rem;
+            color: rgba(255, 255, 255, 0.85);
+            font-weight: 300;
+        }
+
+        .contact-links {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .contact-links a {
+            color: white;
+            font-size: 1.5rem;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-links a:hover {
+            color: var(--accent-color);
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: 3fr 1fr;
+            gap: 2rem;
+            padding: 2.5rem;
+        }
+
+        .main-section {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            border-bottom: 3px solid var(--accent-color);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .experience-item, .education-item {
+            background-color: var(--background-light);
+            padding: 1.5rem;
+            border-radius: 8px;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .experience-item:hover, .education-item:hover {
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .job-title {
+            color: var(--secondary-color);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .company, .institution {
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        .experience-details {
+            list-style-type: none;
+            margin-top: 0.5rem;
+        }
+
+        .experience-details li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .experience-details li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+        }
+
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .skill-badge {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .skill-badge:hover {
+            background-color: var(--accent-color);
+        }
+
+        .sidebar {
+            background-color: var(--background-light);
+            padding: 2rem;
+            border-radius: 8px;
+        }
+
+        .personal-detail {
+            margin-bottom: 1rem;
+        }
+
+        .personal-detail strong {
+            color: var(--secondary-color);
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+
+        @media (max-width: 768px) {
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .profile-image {
+                margin-right: 0;
+                margin-bottom: 1.5rem;
+            }
+
+            .contact-links {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="portfolio-container">
+        <div class="header">
+            <img src="./img/aboutme.jpg" alt="Professional Headshot" class="profile-image">
+            <div class="header-content">
+                <h1>Alexander James Thompson</h1>
+                <p>Senior Software Architect | Cloud & AI Solutions Specialist</p>
+                <div class="contact-links">
+                    <a href="mailto:alexander.thompson@professional.com" title="Email">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                    <a href="https://linkedin.com/in/alexanderjthompson" title="LinkedIn">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="https://github.com/alexthompson" title="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://alexanderjthompson.com" title="Personal Website">
+                        <i class="fas fa-globe"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="portfolio-grid">
+            <div class="main-section">
+                <section>
+                    <h2 class="section-title">Professional Summary</h2>
+                    <p>Distinguished software architect with 10+ years of expertise in designing scalable cloud infrastructure and AI-driven solutions. Proven track record of leading cross-functional teams, delivering high-impact technological innovations that drive business transformation and operational excellence.</p>
+                </section>
+
+                <section>
+                    <h2 class="section-title">Professional Experience</h2>
+                    <div class="experience-item">
+                        <h3 class="job-title">Senior Cloud Solutions Architect</h3>
+                        <p class="company">TechNova Innovations, San Francisco, CA</p>
+                        <p class="date">January 2020 - Present</p>
+                        <ul class="experience-details">
+                            <li>Architected enterprise-grade microservices ecosystem reducing infrastructure costs by 45%</li>
+                            <li>Led AI/ML strategy implementation, enhancing predictive analytics capabilities</li>
+                            <li>Developed comprehensive cloud migration roadmaps for Fortune 500 clients</li>
+                        </ul>
+                    </div>
+
+                    <div class="experience-item">
+                        <h3 class="job-title">Lead Software Engineer</h3>
+                        <p class="company">Digital Frontier Solutions, Seattle, WA</p>
+                        <p class="date">June 2017 - December 2019</p>
+                        <ul class="experience-details">
+                            <li>Engineered scalable distributed systems using containerization technologies</li>
+                            <li>Implemented advanced security protocols reducing vulnerability exposure</li>
+                            <li>Mentored engineering team, improving overall development productivity</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section>
+                    <h2 class="section-title">Technical Expertise</h2>
+                    <div class="skills-container">
+                        <span class="skill-badge">Kubernetes</span>
+                        <span class="skill-badge">Docker</span>
+                        <span class="skill-badge">AWS</span>
+                        <span class="skill-badge">Python</span>
+                        <span class="skill-badge">Terraform</span>
+                        <span class="skill-badge">Machine Learning</span>
+                        <span class="skill-badge">Microservices</span>
+                        <span class="skill-badge">CI/CD</span>
+                    </div>
+                </section>
+            </div>
+
+            <div class="sidebar">
+                <section>
+                    <h2 class="section-title">Personal Details</h2>
+                    <div class="personal-detail">
+                        <strong>Location</strong>
+                        San Francisco Bay Area, CA
+                    </div>
+                    <div class="personal-detail">
+                        <strong>Professional Certifications</strong>
+                        • AWS Certified Solutions Architect
+                        • Google Cloud Professional
+                        • Kubernetes Administrator
+                    </div>
+                    <div class="personal-detail">
+                        <strong>Education</strong>
+                        <p>Master of Science, Computer Science</p>
+                        <p>Stanford University, 2017</p>
+                        <p>Bachelor of Technology, Computer Engineering</p>
+                        <p>MIT Institute of Technology, 2015</p>
+                    </div>
+                    <div class="personal-detail">
+                        <strong>Languages</strong>
+                        • English (Native)
+                        • Spanish (Professional Working Proficiency)
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Subtle interactions
+        document.querySelectorAll('.experience-item').forEach(item => {
+            item.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-5px)';
+            });
+            item.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+            });
+        });
+    </script>
+</body>
+</html>

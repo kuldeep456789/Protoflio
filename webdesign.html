@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frontend and Backend</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            display: flex;
+            gap: 20px;
+        }
+
+        .box {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+            width: 250px;
+            transition: transform 0.3s;
+            text-decoration: none; /* Ensure no underline on links */
+            color: inherit; /* Inherit text color */
+        }
+
+        .box:hover {
+            transform: scale(1.05);
+        }
+
+        .icon {
+            font-size: 50px;
+            color: #007bff;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            margin: 10px 0;
+            color: #333;
+        }
+
+        p {
+            color: #666;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="file:///C:/Users/kulde/Downloads/Dark-javascript/protflio/frontend.html" class="box frontend">
+            <i class="fas fa-laptop-code icon"></i>
+            <h2>Frontend</h2>
+            <p>Learn about frontend technologies.</p> <!-- Optional description -->
+        </a>
+        <a href="file:///C:/Users/kulde/Downloads/Dark-javascript/protflio/Backend.html" class="box backend">
+            <i class="fas fa-server icon"></i>
+            <h2>Backend</h2>
+            <p>Explore backend development concepts.</p> <!-- Optional description -->
+        </a>
+        <a href="file:///C:/Users/kulde/Downloads/Dark-javascript/protflio/Database.html" class="box">
+            <i class="fas fa-database icon"></i> <!-- Icon for Database -->
+            <h2>Database</h2>
+            <p>Manage data efficiently and securely.</p> <!-- Optional description -->
+        </a>
+    </div>
+</body>
+</html>

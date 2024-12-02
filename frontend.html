@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frontend Technologies</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap; /* Allows boxes to wrap to the next line */
+        }
+
+        .box {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+            width: 250px;
+            transition: transform 0.3s;
+            text-decoration: none; /* Ensure no underline on links */
+            color: inherit; /* Inherit text color */
+        }
+
+        .box:hover {
+            transform: scale(1.05);
+        }
+
+        .icon {
+            font-size: 50px;
+            color: #007bff;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            margin: 10px 0;
+            color: #333;
+        }
+
+        p {
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="html.html" class="box">
+            <i class="fab fa-html5 icon"></i> <!-- Icon for HTML -->
+            <h2>HTML</h2>
+            <p>Structure and layout of web pages.</p>
+        </a>
+        <a href="css.html" class="box">
+            <i class="fab fa-css3-alt icon"></i> <!-- Icon for CSS -->
+            <h2>CSS</h2>
+            <p>Styling and visual presentation of web pages.</p>
+        </a>
+        <a href="javascript.html" class="box">
+            <i class="fab fa-js icon"></i> <!-- Icon for JavaScript -->
+            <h2>JavaScript</h2>
+            <p>Dynamic behavior and interactivity on web pages.</p>
+        </a>
+    </div>
+</body>
+</html>
