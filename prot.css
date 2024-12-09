@@ -12,7 +12,7 @@ body {
     background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
                 url(./img/anime.jpeg) center/cover no-repeat;
     /* background: linear-gradient(45deg, #1d1f21, #4e54c8); */
-    color: white;
+    color: rgb(18, 17, 17);
     overflow-x: hidden;
     max-height: 100vh;
 }
@@ -30,11 +30,8 @@ body {
     width: 200px;
     animation: fadeOut 2s ease-in-out 2.5s forwards;
 }
-
-*/ */
-
 nav{
-    background-color: white;
+    background-color: rgb(64, 61, 61);
     box-shadow: 3px 3px 5px rgba(72, 51, 169, 0.1);
   }
   nav ul{
