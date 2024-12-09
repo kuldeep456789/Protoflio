@@ -3,23 +3,13 @@ window.onload = () => {
         document.getElementById("splashScreen").style.display = "none";
     }, 500);
 };
-
-// Open the modal
-function openModal() {
-    const modal = document.getElementById("qrModal");
-    modal.style.display = "flex"; // Show modal as flexbox
+// Sidebar Toggle
+function showSidebar() {
+    const sidebar = document.querySelector('.sidebar');
+    sidebar.style.display = 'flex';
 }
 
-// Close the modal
-function closeModal() {
-    const modal = document.getElementById("qrModal");
-    modal.style.display = "none";
+function hideSidebar() {
+    const sidebar = document.querySelector('.sidebar');
+    sidebar.style.display = 'none';
 }
-
-// Close modal on clicking outside of it
-window.onclick = function(event) {
-    const modal = document.getElementById("qrModal");
-    if (event.target === modal) {
-        modal.style.display = "none";
-    }
-};

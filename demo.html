@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Information Showcase</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            margin-bottom: 30px;
+            color: #2c3e50;
+        }
+
+        .project-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .box {
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            width: 300px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: box-shadow 0.3s;
+            overflow: hidden;
+            text-align: left;
+        }
+
+        .box img {
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .box-content {
+            padding: 15px;
+        }
+
+        .box h2 {
+            margin: 0 0 10px 0;
+            color: #2c3e50;
+            font-size: 1.5em;
+        }
+
+        .box p {
+            color: #7f8c8d;
+            margin-bottom: 15px;
+        }
+
+        .box-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 15px;
+            background-color: #f8f9fa;
+        }
+
+        .btn {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #2980b9;
+        }
+
+        #projectModal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.5);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            padding: 20px;
+            border-radius: 10px;
+            width: 500px;
+            max-width: 90%;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .close-btn {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close-btn:hover {
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Our Project Showcase</h1>
+        <div class="project-grid" id="projectGrid">
+            <!-- Project boxes will be dynamically added here -->
+        </div>
+    </div>
+
+    <div id="projectModal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <h2 id="modalTitle"></h2>
+            <p id="modalDescription"></p>
+            <div id="modalTechnologies"></div>
+        </div>
+    </div>
+
+    <script>
+        const projects = [
+            {
+                name: "Web Analytics Dashboard",
+                description: "A comprehensive web analytics platform that provides real-time insights into website traffic, user behavior, and performance metrics.",
+                technologies: ["React", "Node.js", "MongoDB", "D3.js"],
+                image: ""
+            },
+            {
+                name: "Smart Home Automation",
+                description: "IoT-based home automation system allowing users to control and monitor home devices through a mobile app and voice commands.",
+                technologies: ["Python", "Raspberry Pi", "MQTT", "Firebase"],
+                image: "https://via.placeholder.com/300x200?text=Smart+Home"
+            },
+            {
+                name: "E-Learning Platform",
+                description: "Online learning management system with interactive courses, progress tracking, and personalized learning recommendations.",
+                technologies: ["Angular", "Spring Boot", "PostgreSQL", "Elasticsearch"],
+                image: "https://via.placeholder.com/300x200?text=E-Learning"
+            }
+        ];
+
+        function renderProjects() {
+            const projectGrid = document.getElementById('projectGrid');
+            projectGrid.innerHTML = projects.map(project => `
+                <div class="box" onclick="openModal('${project.name}')">
+                    <img src="${project.image}" alt="${project.name}">
+                    <div class="box-content">
+                        <h2>${project.name}</h2>
+                        <p>${project.description.substring(0, 100)}...</p>
+                    </div>
+                    <div class="box-footer">
+                        <button class="btn" onclick="openModal('${project.name}')">View Details</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function openModal(projectName) {
+            const project = projects.find(p => p.name === projectName);
+            if (project) {
+                document.getElementById('modalTitle').textContent = project.name;
+                document.getElementById('modalDescription').textContent = project.description;
+                document.getElementById('modalTechnologies').innerHTML = 
+                    `<h3>Technologies Used:</h3>
+                     <ul>${project.technologies.map(tech => `<li>${tech}</li>`).join('')}</ul>`;
+                document.getElementById('projectModal').style.display = 'flex';
+            }
+        }
+
+        function closeModal() {
+            document.getElementById('projectModal').style.display = 'none';
+        }
+
+        // Initialize projects on page load
+        renderProjects();
+    </script>
+</body>
+</html>

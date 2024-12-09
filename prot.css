@@ -31,46 +31,73 @@ body {
     animation: fadeOut 2s ease-in-out 2.5s forwards;
 }
 
-/* Navigation */
-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 2rem;
-    background: rgba(0, 0, 0, 0.7);
-    position: fixed;
+*/ */
+
+nav{
+    background-color: white;
+    box-shadow: 3px 3px 5px rgba(72, 51, 169, 0.1);
+  }
+  nav ul{
     width: 100%;
-    z-index: 1000;
-}
-
-nav .logo {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #4e54c8;
-}
-
-nav .links a, nav .social-icons a {
-    color: white;
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+  nav li{
+    height: 50px;
+  }
+  nav a{
+    height: 100%;
+    padding: 0 30px;
     text-decoration: none;
-    margin: 0 10px;
-    transition: color 0.3s;
-}
-
-nav .links a:hover, nav .social-icons a:hover {
-    color: #4e54c8;
-}
-
-/* Responsive Navbar for Small Screens */
-nav .links {
     display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-}
-
-nav .social-icons {
-    display: flex;
-    gap: 10px;
-}
+    align-items: center;
+    color: rgb(30, 103, 205);
+  }
+  nav a:hover{
+    background-color: #e60b0b;
+  }
+  nav li:first-child{
+    margin-right: auto;
+  }
+  .sidebar{
+    position: fixed;
+    top: 0; 
+    right: 0;
+    height: 100vh;
+    width: 250px;
+    background-color: rgba(126, 51, 188, 0.15);
+    backdrop-filter: blur(12px);
+    box-shadow: -10px 0 10px rgba(222, 5, 66, 0.1);
+    list-style: none;
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+  .sidebar li{
+    width: 100%;
+  }
+  .sidebar a{
+    width: 100%;
+  }
+  .menu-button{
+    display: none;
+  }
+  @media(max-width: 800px){
+    .hideOnMobile{
+      display: none;
+    }
+    .menu-button{
+      display: block;
+    }
+  }
+  @media(max-width: 400px){
+    .sidebar{
+      width: 100%;
+    }
+  }
 
 
 
@@ -180,150 +207,42 @@ nav .social-icons {
     }
 }
 
+footer {  
+    position: fixed;  
+    bottom: 0;  
+    width: 100%;  
+    background: transparent; /* Changed the background to transparent */  
+    padding: 20px 10px;  
+    text-align: center;  
+  }  
+  
+  .scroll-down {  
+    cursor: pointer;  
+  }  
+  
+  .scroll-down a {  
+    color: #fff; /* Changed the color to white to make it visible against a transparent background */  
+    text-decoration: none;  
+    transition: color 0.3s ease-in-out;  
+    font-family: 'Open Sans', sans-serif;  
+  }  
+  
+  .scroll-down a:hover {  
+    color: #039be5;  
+  }  
+  
+  .scroll-down i {  
+    font-size: 24px;  
+    margin-right: 10px;  
+    color: #039be5;  
+  }  
+  
+  .scroll-down span {  
+    font-size: 18px;  
+    font-weight: bold;  
+    font-family: 'Open Sans', sans-serif;  
+  }
 
-/* Main Content */
-/* .container {
-    text-align: center;
-    padding: 20vh 2rem 0;
-}
-
-.container h1 {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-}
-
-.container .highlight {
-    color: #4e54c8;
-    font-weight: bold;
-}
-
-.container .description {
-    font-size: 1.2rem;
-    margin-bottom: 2rem;
-}
-
-.resume-btns .btn {
-    background: #4e54c8;
-    color: white;
-    padding: 10px 20px;
-    margin: 10px;
-    border: none;
-    cursor: pointer;
-    transition: background 0.2s;
-}
-
-.resume-btns .btn:hover {
-    background: #1d1f21;
-} */
-
-
-.background-animation {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    z-index: -1;
-} 
-.circle {
-    position: absolute;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.1);
-    animation: move 10s infinite ease-in-out;
-}
-
-.circle:nth-child(1) {
-    width: 200px;
-    height: 200px;
-    left: 10%;
-    top: 20%;
-}
-
-.circle:nth-child(2) {
-    width: 150px;
-    height: 150px;
-    right: 15%;
-    top: 40%;
-}
-
-.circle:nth-child(3) {
-    width: 300px;
-    height: 300px;
-    left: 50%;
-    top: 60%;
-}
-
-.circle:nth-child(4) {
-    width: 100px;
-    height: 100px;
-    right: 30%;
-    top: 10%;
-}
-
-
-/* Footer with Scroll Button */
-footer {
-    position: fixed;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 1000;
-    text-align: center;
-}
-
-.scroll-down {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    cursor: pointer;
-    animation: bounce 2s infinite;
-}
-
-.scroll-down i {
-    font-size: 2rem;
-    color: #fff;
-}
-
-.scroll-down span {
-    font-size: 0.9rem;
-    color: #fff;
-    margin-top: 5px;
-}
-
-
-/* WhatsApp Link Style */
-a {
-    text-decoration: none;
-    color: #25D366; /* WhatsApp green */
-    font-size: 1.2rem;
-    font-weight: bold;
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    transition: transform 0.3s, color 0.3s;
-}
-
-a:hover {
-    color: #128C7E;
-    transform: scale(1.1);
-}
-
-/* Modal Overlay */
-.modal {
-    display: none; /* Hidden by default */
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.6); /* Semi-transparent background */
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-}
-
-/* Modal Content */
 .modal-content {
     background: #fff;
     padding: 20px;
@@ -350,47 +269,7 @@ a:hover {
     color: #ff0000;
 }
 
-/* QR Code */
-.qr-code {
-    width: 200px;
-    height: auto;
-    margin-top: 15px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
 
-/* Animation */
-@keyframes slideIn {
-    from {
-        transform: translateY(-50px);
-        opacity: 0;
-    }
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
-}
-
-/* Responsiveness */
-@media screen and (max-width: 480px) {
-    .modal-content {
-        width: 95%;
-    }
-
-    .qr-code {
-        width: 150px;
-    }
-}
-
-/* Bounce Animation */
-@keyframes bounce {
-    0%, 100% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-10px);
-    }
-}
 
 /* Animations */
 @keyframes move {
@@ -424,12 +303,12 @@ a:hover {
     }
 
     nav .links {
-        justify-content: center;
+        justify-content: center ;
         gap: 15px;
     }
 
     nav .social-icons {
-        justify-content: center;
+        justify-content: right;
     }
 
     .container h1 {
