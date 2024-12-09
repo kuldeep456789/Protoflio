@@ -115,7 +115,7 @@ nav{
 .container h1 {
     font-size: 3rem;
     font-weight: bold;
-    margin-bottom: 1rem;
+    margin-bottom: 0.2rem;
     color: #fff;
     text-shadow: 2px 4px 10px rgba(0, 0, 0, 0.3); /* Add depth to the text */
 }
@@ -127,8 +127,8 @@ nav{
 
 .container .description {
     font-size: 1.2rem;
-    margin-bottom: 2rem;
-    line-height: 1.6;
+    margin-bottom: 1rem;
+    line-height: 1.6px;
     color: rgba(255, 255, 255, 0.9);
     text-shadow: 1px 2px 5px rgba(225, 227, 227, 0.3); /* Subtle shadow for better visibility */
 }
