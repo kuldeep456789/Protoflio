@@ -8,10 +8,8 @@
 /* Body */
 body {
     font-family: Arial, sans-serif;
-    /* background-image: url(./img/anime.jpeg); */
     background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
                 url(./img/anime.jpeg) center/cover no-repeat;
-    /* background: linear-gradient(45deg, #1d1f21, #4e54c8); */
     color: rgb(18, 17, 17);
     overflow-x: hidden;
     max-height: 100vh;
