@@ -119,9 +119,9 @@ nav{
 }
 
 .container .highlight {
-    color: #0099ff; /* Bright highlight for the name */
+    color: #0099ff;
     font-weight: bold;
-    margin-top: -auto;
+    padding-top: 2rem;
 }
 
 .container .description {
