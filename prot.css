@@ -8,8 +8,8 @@
 /* Body */
 body {
     font-family: Arial, sans-serif;
-    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
-                url(./img/anime.jpeg) center/cover no-repeat;
+        /* background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+                    url(./img/anime.jpeg) center/cover no-repeat; */
     color: rgb(18, 17, 17);
     overflow-x: hidden;
     max-height: 100vh;
@@ -121,7 +121,7 @@ nav{
 .container .highlight {
     color: #0099ff; /* Bright highlight for the name */
     font-weight: bold;
-    margin-top: 2rem;
+    margin-top: -auto;
 }
 
 .container .description {
