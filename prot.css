@@ -107,7 +107,9 @@ nav{
     /* background: linear-gradient(135deg, #4e54c8, #8f94fb); Vibrant gradient background */
     color: #fff;
     padding: 2rem;
-    animation: fadeIn 1.5s ease-in-out; /* Smooth fade-in animation */
+    padding-top: 30px;
+    animation: fadeIn 1.5s ease-in-out; 
+   
 }
 
 .container h1 {
@@ -115,13 +117,13 @@ nav{
     font-weight: bold;
     margin-bottom: 0.2rem;
     color: #fff;
-    text-shadow: 2px 4px 10px rgba(0, 0, 0, 0.3); /* Add depth to the text */
+    text-shadow: 2px 4px 10px rgba(0, 0, 0, 0.3); 
 }
 
 .container .highlight {
     color: #0099ff;
     font-weight: bold;
-    padding-top: 2rem;
+   
 }
 
 .container .description {
