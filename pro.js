@@ -38,3 +38,21 @@ themeToggle.addEventListener('click', () => {
         themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
     }
 });
+
+const sidebar = document.querySelector('.sidebar');
+const overlay = document.createElement('div');
+overlay.className = 'sidebar-overlay';
+document.body.appendChild(overlay);
+
+function showSidebar() {
+    sidebar.classList.add('active');
+    overlay.classList.add('active');
+}
+
+function hideSidebar() {
+    sidebar.classList.remove('active');
+    overlay.classList.remove('active');
+}
+
+// Close sidebar when clicking on overlay
+overlay.addEventListener('click', hideSidebar);

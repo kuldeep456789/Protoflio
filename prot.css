@@ -28,71 +28,151 @@ body {
     width: 200px;
     animation: fadeOut 2s ease-in-out 2.5s forwards;
 }
-nav{
-    background-color: rgb(64, 61, 61);
-    box-shadow: 3px 3px 5px rgba(72, 51, 169, 0.1);
-  }
-  nav ul{
-    width: 100%;
-    list-style: none;
+
+/* Navbar Styling */
+nav {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     align-items: center;
-  }
-  nav li{
-    height: 50px;
-  }
-  nav a{
-    height: 100%;
-    padding: 0 30px;
+    padding: 1rem 2rem;
+    background: linear-gradient(90deg, #1e3c72, #2a5298);
+    color: white;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 21px -4px 76px 32px rgba(0,0,0,0.9);
+-webkit-box-shadow: 21px -4px 76px 32px rgba(0,0,0,0.9);
+-moz-box-shadow: 21px -4px 76px 32px rgba(0,0,0,0.9);
+}
+
+.navbar {
+    display: flex;
+    list-style: none;
+    align-items: center;
+    gap: 2rem;
+}
+
+.navbar a {
     text-decoration: none;
+    color: white;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.navbar a:hover {
+    color: #ffcc00;
+    text-shadow: 0 0 8px rgba(255, 204, 0, 0.8);
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #ffcc00;
+}
+
+.menu-button svg,
+.close-icon svg {
+    fill: white;
+    transition: transform 0.3s ease;
+}
+
+.menu-button:hover svg,
+.close-icon:hover svg {
+    transform: rotate(180deg);
+}
+
+.theme-toggle button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.theme-toggle button:hover {
+    transform: scale(1.2);
+}
+/* Sidebar Styling */
+.sidebar {
+    display: none; /* Hide by default */
+    background: rgba(30, 60, 114, 0.85); /* Semi-transparent background */
+    backdrop-filter: blur(10px); /* Glass effect */
+    position: fixed;
+    top: 0;
+    left: -100%; /* Start off-screen */
+    width: 250px;
+    height: 50%; /* Cover full height */
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    box-shadow: 2px 0 8px rgba(0, 0, 0, 0.3);
+    transition: left 0.4s ease-in-out; /* Smooth slide-in effect */
+    z-index: 1000;
+    opacity: 0.8;
+}
+
+.sidebar.active {
+    left: 0; /* Slide into view */
+}
+
+.sidebar li {
+    margin: 1rem 0;
+}
+
+.sidebar a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
     display: flex;
     align-items: center;
-    color: rgb(30, 103, 205);
-  }
-  nav a:hover{
-    background-color: #e60b0b;
-  }
-  nav li:first-child{
-    margin-right: auto;
-  }
-  .sidebar{
+    gap: 0.5rem;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.sidebar a:hover {
+    color: #ffcc00;
+    transform: scale(1.1);
+}
+
+/* Close Icon Styling */
+.sidebar .close-icon svg {
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.sidebar .close-icon svg:hover {
+    transform: rotate(90deg); /* Add rotation effect */
+}
+
+/* Show sidebar on smaller screens */
+@media (max-width: 768px) {
+    .sidebar {
+        display: flex;
+    }
+
+    .hideOnMobile {
+        display: none;
+    }
+}
+
+/* Add Overlay for Focus Effect */
+.sidebar-overlay {
+    display: none; /* Hide overlay by default */
     position: fixed;
-    top: 0; 
-    right: 0;
-    height: 100vh;
-    width: 250px;
-    background-color: rgba(126, 51, 188, 0.15);
-    backdrop-filter: blur(12px);
-    box-shadow: -10px 0 10px rgba(222, 5, 66, 0.1);
-    list-style: none;
-    display: none;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
-  }
-  .sidebar li{
+    top: 0;
+    left: 0;
     width: 100%;
-  }
-  .sidebar a{
-    width: 100%;
-  }
-  .menu-button{
-    display: none;
-  }
-  @media(max-width: 800px){
-    .hideOnMobile{
-      display: none;
-    }
-    .menu-button{
-      display: block;
-    }
-  }
-  @media(max-width: 400px){
-    .sidebar{
-      width: 100%;
-    }
-  }
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent dark overlay */
+    z-index: 999;
+    transition: opacity 0.4s ease;
+}
+
+.sidebar-overlay.active {
+    display: block; /* Show overlay when sidebar is active */
+    opacity: 1;
+}
 
 
 
@@ -134,6 +214,61 @@ nav{
     text-shadow: 1px 2px 5px rgba(225, 227, 227, 0.3); /* Subtle shadow for better visibility */
 }
 
+/* Basic Profile Image Styling */
+.profile-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+/* Glow Effect */
+.profile-image::after {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    border-radius: 50%;
+    background: linear-gradient(45deg, #ff0000, #00ff00, #0000ff, #ff00ff);
+    z-index: -1;
+    animation: colorChange 1s linear infinite;
+    filter: blur(10px);
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+}
+
+/* Hover Effects */
+.profile-image:hover {
+    transform: scale(1.05);
+}
+
+.profile-image:hover::after {
+    opacity: 0.9;
+    filter: blur(15px);
+}
+
+/* Color Change Animation */
+@keyframes colorChange {
+    0% {
+        background: linear-gradient(0deg, #ff0000, #00ff00, #0000ff, #ff00ff);
+    }
+    25% {
+        background: linear-gradient(90deg, #ff00ff, #ff0000, #00ff00, #0000ff);
+    }
+    50% {
+        background: linear-gradient(180deg, #0000ff, #ff00ff, #ff0000, #00ff00);
+    }
+    75% {
+        background: linear-gradient(270deg, #00ff00, #0000ff, #ff00ff, #ff0000);
+    }
+    100% {
+        background: linear-gradient(360deg, #ff0000, #00ff00, #0000ff, #ff00ff);
+    }
+}
 .resume-btns {
     display: flex;
     justify-content: center;

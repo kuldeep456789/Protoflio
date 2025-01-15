@@ -7,28 +7,23 @@
     <title>KP Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="prot.css">
-</head>
-
+</head> 
 <body>
-    <div id="splashScreen" class="splash-screen">
-        <img src="./img/logo-kp-removebg-preview.png" alt="Website Logo" class="splash-logo">
-    </div>
     <nav>
         <ul class="sidebar">
-            <li onclick="hideSidebar()">
-                <a href="#">
-                    <svg xmlns="http://www.w3.org/2000/svg" height="26" viewBox="0 96 960 960" width="26">
-                        <path d="m249 849-42-42 231-231-231-231 42-42 231 231 231-231 42 42-231 231 231 231-42 42-231-231-231 231Z" />
-                    </svg>  
-                </a>
-            </li>
+            <li onclick="hideSidebar()" class="close-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" height="26" viewBox="0 96 960 960" width="26">
+                    <path d="m249 849-42-42 231-231-231-231 42-42 231 231 231-231 42 42-231 231 231 231-42 42-231-231-231 231Z" />
+                </svg>
+        
             <li><a href="./skill/abourme.html"><i class="fas fa-info-circle"></i> About Me</a></li>
             <li><a href="./skill/known.html"><i class="fas fa-cogs"></i> Skills</a></li>
             <li><a href="./project/design.html"><i class="fas fa-project-diagram"></i> Projects</a></li>
             <li><a href="./contact/page.html"><i class="fas fa-envelope"></i> Contact</a></li>
+            </li>
         </ul>
-        <ul>
-            <li><a href="#">KP</a></li>
+        <ul class="navbar">
+            <li><a href="#" class="logo">KP</a></li>
             <li class="hideOnMobile"><a href="./skill/abourme.html"><i class="fas fa-info-circle"></i> About Me</a></li>
             <li class="hideOnMobile"><a href="./skill/known.html"><i class="fas fa-cogs"></i> Skills</a></li>
             <li class="hideOnMobile"><a href="./project/design.html"><i class="fas fa-project-diagram"></i> Projects</a></li>
@@ -40,6 +35,8 @@
                     </svg>
                 </a>
             </li>
+
+            <!-- dark mode or light mode -->
             <li class="theme-toggle">
                 <button id="themeToggle" aria-label="Toggle Dark/Light Mode">
                     <i class="fas fa-sun"></i>
@@ -47,7 +44,7 @@
             </li>
         </ul>
     </nav>
-
+    
     <!-- Social Icons -->
     <div class="social-icons" id="socialIcons">
         <a href="#" target="_blank" aria-label="Telegram"><i class="fab fa-telegram-plane"></i></a>
@@ -62,7 +59,7 @@
     <!-- Main Content -->
     <div class="container">
         <section id="about" class="about">
-            <img id="profileImage" src="body2.jpeg"class="profile-image">
+            <img id="profileImage" src="./img/protflio.image.jpg"class="profile-image">
             <h1>I am <span class="highlight">Kuldeep Prajapati</span></h1>
             <div class="resume-btns">
                 <button class="btn" onclick="window.location.href='./img/resume2.jpg'"><i class="fas fa-download"></i> Resume</button>
