@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Projects Portfolio</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.29.0/feather.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(to bottom right, #0f172a, #1e293b);
+            color: #e2e8f0;
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* Header Styles */
+        .header {
+            text-align: center;
+            margin-bottom: 4rem;
+            padding: 2rem 0;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(to right, #60a5fa, #a78bfa);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .header p {
+            color: #94a3b8;
+            font-size: 1.1rem;
+        }
+
+        /* Filter Section */
+        .filters {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 0.5rem 1.5rem;
+            border: 1px solid #4b5563;
+            background: transparent;
+            color: #e2e8f0;
+            border-radius: 9999px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .filter-btn:hover {
+            background: rgba(99, 102, 241, 0.1);
+            border-color: #818cf8;
+        }
+
+        .filter-btn.active {
+            background: #818cf8;
+            border-color: #818cf8;
+        }
+
+        /* Projects Grid */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 1rem;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(129, 140, 248, 0.5);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .project-content {
+            padding: 1.5rem;
+        }
+
+        .project-type {
+            font-size: 0.875rem;
+            color: #818cf8;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .project-description {
+            color: #94a3b8;
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-tag {
+            padding: 0.25rem 0.75rem;
+            background: rgba(99, 102, 241, 0.1);
+            color: #818cf8;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .project-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #e2e8f0;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+        }
+
+        .project-link:hover {
+            color: #818cf8;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>My Project Portfolio</h1>
+            <p>A showcase of my work across different technologies and domains</p>
+        </header>
+
+        <div class="filters">
+            <button class="filter-btn active" data-filter="all">All Projects</button>
+            <button class="filter-btn" data-filter="web">Web Development</button>
+            <button class="filter-btn" data-filter="ml">Machine Learning</button>
+            <button class="filter-btn" data-filter="blockchain">Blockchain</button>
+        </div>
+
+        <div class="projects-grid" id="projects-grid">
+            <!-- Projects will be dynamically added here -->
+        </div>
+    </div>
+
+    <script>
+        // Project data
+        const projects = [
+            {
+                type: 'web',
+                title: 'E-Commerce Platform',
+                description: 'A full-stack e-commerce platform built with MERN stack featuring user authentication, payment integration, and admin dashboard.',
+                image: '/api/placeholder/400/320',
+                tags: ['React', 'Node.js', 'MongoDB', 'Express'],
+                demoLink: '#',
+                codeLink: '#'
+            },
+            {
+                type: 'ml',
+                title: 'Image Recognition System',
+                description: 'Deep learning model for real-time object detection and classification using TensorFlow and OpenCV.',
+                image: '/api/placeholder/400/320',
+                tags: ['Python', 'TensorFlow', 'OpenCV'],
+                demoLink: '#',
+                codeLink: '#'
+            },
+            {
+                type: 'blockchain',
+                title: 'DeFi Platform',
+                description: 'Decentralized finance platform for token swapping and yield farming built on Ethereum.',
+                image: '/api/placeholder/400/320',
+                tags: ['Solidity', 'Web3.js', 'React'],
+                demoLink: '#',
+                codeLink: '#'
+            }
+            // Add more projects as needed
+        ];
+
+        // Initialize Feather Icons
+        document.addEventListener('DOMContentLoaded', () => {
+            feather.replace();
+            renderProjects('all');
+
+            // Add click handlers for filter buttons
+            document.querySelectorAll('.filter-btn').forEach(button => {
+                button.addEventListener('click', (e) => {
+                    // Update active state
+                    document.querySelectorAll('.filter-btn').forEach(btn => {
+                        btn.classList.remove('active');
+                    });
+                    e.currentTarget.classList.add('active');
+
+                    // Filter projects
+                    const filter = e.currentTarget.dataset.filter;
+                    renderProjects(filter);
+                });
+            });
+        });
+
+        // Render projects based on filter
+        function renderProjects(filter) {
+            const projectsGrid = document.getElementById('projects-grid');
+            projectsGrid.innerHTML = '';
+
+            const filteredProjects = filter === 'all' 
+                ? projects 
+                : projects.filter(project => project.type === filter);
+
+            filteredProjects.forEach(project => {
+                const projectCard = `
+                    <div class="project-card">
+                        <img src="${project.image}" alt="${project.title}" class="project-image">
+                        <div class="project-content">
+                            <div class="project-type">${project.type}</div>
+                            <h3 class="project-title">${project.title}</h3>
+                            <p class="project-description">${project.description}</p>
+                            <div class="project-tags">
+                                ${project.tags.map(tag => `<span class="project-tag">${tag}</span>`).join('')}
+                            </div>
+                            <div class="project-links">
+                                <a href="${project.demoLink}" class="project-link">
+                                    <i data-feather="external-link"></i>
+                                    Live Demo
+                                </a>
+                                <a href="${project.codeLink}" class="project-link">
+                                    <i data-feather="github"></i>
+                                    View Code
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                projectsGrid.innerHTML += projectCard;
+            });
+
+            // Reinitialize Feather Icons for new content
+            feather.replace();
+        }
+    </script>
+</body>
+</html>

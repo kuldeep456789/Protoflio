@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>click to me </title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.29.0/feather.min.js"></script>
+</head>
+
+<body>
+
+    <style>
+        /* styles.css */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            min-height: 100vh;
+            background: linear-gradient(to bottom right, #1a1a2e, #1a1a2e, #0d2559);
+            color: white;
+        }
+
+        .portfolio {
+            min-height: 100vh;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at center, rgba(0, 0, 255, 0.1) 0, rgba(0, 0, 0, 0) 100%);
+        }
+
+        .hero-content {
+            max-width: 72rem;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .card {
+            backdrop-filter: blur(1rem);
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 1rem;
+            padding: 3rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+            transition: all 0.5s;
+        }
+
+        .card:hover {
+            box-shadow: 0 25px 50px rgba(59, 130, 246, 0.2);
+        }
+
+        .greeting {
+            font-size: 0.875rem;
+            color: #60A5FA;
+            font-family: monospace;
+            margin-bottom: 1.5rem;
+        }
+
+        .name {
+            font-size: 3.75rem;
+            font-weight: bold;
+            background: linear-gradient(to right, #60A5FA, #A78BFA);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 1.5rem;
+        }
+
+        .title {
+            font-size: 1.25rem;
+            color: #D1D5DB;
+            margin-bottom: 1.5rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1.5rem;
+            padding-top: 1rem;
+        }
+
+        .social-icon {
+            color: #D1D5DB;
+            transition: all 0.3s;
+        }
+
+        .social-icon:hover {
+            color: #60A5FA;
+            transform: scale(1.1);
+        }
+
+        /* Education Section */
+        .education {
+            padding: 5rem 1rem;
+            max-width: 72rem;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 2.25rem;
+            font-weight: bold;
+            text-align: center;
+            background: linear-gradient(to right, #60A5FA, #A78BFA);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 3rem;
+        }
+
+        .education-cards {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .education-card {
+            backdrop-filter: blur(1rem);
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 1rem;
+            padding: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s;
+        }
+
+        .education-card:hover {
+            border-color: rgba(59, 130, 246, 0.5);
+        }
+
+        .education-content {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        @media (min-width: 768px) {
+            .education-content {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+            }
+        }
+
+        .education-card h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #60A5FA;
+        }
+
+        .education-card p {
+            color: #D1D5DB;
+        }
+
+        .year-badge {
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            background: rgba(59, 130, 246, 0.2);
+            color: #93C5FD;
+            font-family: monospace;
+        }
+
+        /* Skills Section */
+        .skills {
+            padding: 5rem 1rem;
+            max-width: 72rem;
+            margin: 0 auto;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .skills-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .skills-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        .skill-card {
+            backdrop-filter: blur(1rem);
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 0.75rem;
+            padding: 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .skill-card:hover {
+            border-color: rgba(59, 130, 246, 0.5);
+            transform: scale(1.05);
+        }
+
+        .skill-card span {
+            color: #D1D5DB;
+        }
+
+        .skill-card:hover span {
+            color: #60A5FA;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 5rem 1rem;
+            max-width: 72rem;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .contact-card {
+            backdrop-filter: blur(1rem);
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 1rem;
+            padding: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s;
+        }
+
+        .contact-card:hover {
+            border-color: rgba(59, 130, 246, 0.5);
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        .contact-icon {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            color: #D1D5DB;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .contact-icon:hover {
+            color: #60A5FA;
+        }
+
+        .contact-icon i {
+            transition: transform 0.3s;
+        }
+
+        .contact-icon:hover i {
+            transform: scale(1.1);
+        }
+
+        .contact-icon span {
+            font-size: 0.875rem;
+        }
+
+
+        .jokes-section {
+            padding: 5rem 1rem;
+            max-width: 72rem;
+            margin: 0 auto;
+        }
+
+        .jokes-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            .jokes-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .joke-card {
+            backdrop-filter: blur(1rem);
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .joke-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(59, 130, 246, 0.5);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .card-header {
+            padding: 1.5rem;
+            background: rgba(0, 0, 0, 0.2);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .card-header h3 {
+            font-size: 1.25rem;
+            color: #60A5FA;
+            font-weight: 600;
+        }
+
+        .refresh-joke {
+            background: none;
+            border: none;
+            color: #D1D5DB;
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .refresh-joke:hover {
+            color: #60A5FA;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .card-content {
+            padding: 1.5rem;
+        }
+
+        .image-wrapper {
+            position: relative;
+            border-radius: 0.75rem;
+            overflow: hidden;
+            margin-bottom: 1.5rem;
+        }
+
+        .card-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .image-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.7));
+        }
+
+        .image-wrapper:hover .card-img {
+            transform: scale(1.05);
+        }
+
+        .joke-text {
+            font-size: 1.1rem;
+            color: #D1D5DB;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+            min-height: 4rem;
+        }
+
+        .reaction-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: flex-end;
+        }
+
+        .reaction-btn {
+            background: none;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #D1D5DB;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .reaction-btn:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: #60A5FA;
+            border-color: #60A5FA;
+        }
+
+        .reaction-count {
+            font-size: 0.875rem;
+            font-weight: 600;
+        }
+
+        @keyframes spin {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+
+    <div class="portfolio">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <div class="card">
+                    <div class="card-content">
+                        <div class="greeting">Hello, I am</div>
+                        <h1 class="name">Kuldeep Prajapati</h1>
+                        <p class="title">ML/AI Engineer & Full Stack Developer with DevOps experience</p>
+                        <div class="social-links">
+                            <a href="https://github.com/kuldeep456789" class="social-icon">
+                                <i data-feather="github"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/in/kuldeep-prajapati-005080257/" class="social-icon">
+                                <i data-feather="linkedin"></i>
+                            </a>
+                            <a href="https://twitter.com/YOUR_TWITTER" class="social-icon">
+                                <i data-feather="twitter"></i>
+                            </a>
+                            <a href="https://leetcode.com/u/Kp_prajapati/" class="social-icon">
+                                <i data-feather="code"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section class="education">
+            <h2 class="section-title">Education Journey</h2>
+            <div class="education-cards">
+                <div class="education-card">
+                    <div class="education-content">
+                        <div>
+                            <h3>Lovely Professional University</h3>
+                            <p>B.Tech in Computer Science Engineering</p>
+                        </div>
+                        <span class="year-badge">2022 - 2026</span>
+                    </div>
+                </div>
+                <div class="education-card">
+                    <div class="education-content">
+                        <div>
+                            <h3>Gossner College</h3>
+                            <p>High School from my hometown</p>
+                        </div>
+                        <span class="year-badge">2020 - 2022</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section class="skills">
+            <h2 class="section-title">Technical Arsenal</h2>
+            <div class="skills-grid" id="skills-container">
+                <!-- Skills will be added dynamically via JavaScript -->
+            </div>
+        </section>
+
+        <section class="jokes-section">
+            <h2 class="section-title">Developer Humor Hub</h2>
+            <div class="jokes-container">
+                <!-- Jokes Corner -->
+                <div class="joke-card">
+                    <div class="card-header">
+                        <h3>Programming Jokes</h3>
+                        <button class="refresh-joke" data-section="jokes">
+                            <i data-feather="refresh-cw"></i>
+                        </button>
+                    </div>
+                    <div class="card-content">
+                        <div class="image-wrapper">
+                            <img src="body3.jpeg" alt="Jokes image" class="card-img">
+                            <div class="image-overlay"></div>
+                        </div>
+                        <div class="joke-text" id="jokes-text">
+                            Why don't programmers like nature? It has too many bugs!
+                        </div>
+                        <div class="reaction-buttons">
+                            <button class="reaction-btn" data-reaction="laugh">
+                                <i data-feather="smile"></i>
+                                <span class="reaction-count">0</span>
+                            </button>
+                            <button class="reaction-btn" data-reaction="groan">
+                                <i data-feather="meh"></i>
+                                <span class="reaction-count">0</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Kokes Corner -->
+                <div class="joke-card">
+                    <div class="card-header">
+                        <h3>Code Puns</h3>
+                        <button class="refresh-joke" data-section="kokes">
+                            <i data-feather="refresh-cw"></i>
+                        </button>
+                    </div>
+                    <div class="card-content">
+                        <div class="image-wrapper">
+                            <img src="body3.jpeg" alt="Kokes image" class="card-img">
+                            <div class="image-overlay"></div>
+                        </div>
+                        <div class="joke-text" id="kokes-text">
+                            Why did the JavaScript developer go broke? Because he couldn't find a promise!
+                        </div>
+                        <div class="reaction-buttons">
+                            <button class="reaction-btn" data-reaction="laugh">
+                                <i data-feather="smile"></i>
+                                <span class="reaction-count">0</span>
+                            </button>
+                            <button class="reaction-btn" data-reaction="groan">
+                                <i data-feather="meh"></i>
+                                <span class="reaction-count">0</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="contact">
+            <h2 class="section-title">Let's Connect</h2>
+            <div class="contact-card">
+                <div class="contact-links">
+                    <a href="https://github.com/YOUR_GITHUB" class="contact-icon">
+                        <i data-feather="github"></i>
+                        <span>GitHub</span>
+                    </a>
+                    <a href="https://linkedin.com/in/YOUR_LINKEDIN" class="contact-icon">
+                        <i data-feather="linkedin"></i>
+                        <span>LinkedIn</span>
+                    </a>
+                    <a href="https://twitter.com/YOUR_TWITTER" class="contact-icon">
+                        <i data-feather="twitter"></i>
+                        <span>Twitter</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            feather.replace();
+
+            // Skills data
+            const skills = [
+                'HTML', 'CSS', 'JavaScript', 'TypeScript', 'Tailwind CSS', 'SASS',
+                'React.js', 'Node.js', 'Java', 'Python', 'Avien', 'MongoDB',
+                'MySQL', 'PostgreSQL', 'Prisma ORM', 'Docker', 'Bootstrap'
+            ];
+
+            // Populate skills
+            const skillsContainer = document.getElementById('skills-container');
+            skills.forEach(skill => {
+                const skillCard = document.createElement('div');
+                skillCard.className = 'skill-card';
+                skillCard.innerHTML = `<span>${skill}</span>`;
+                skillsContainer.appendChild(skillCard);
+            });
+        });
+
+
+        /* Add this JavaScript to your script.js file */
+        document.addEventListener('DOMContentLoaded', () => {
+            // Initialize Feather icons (if not already done)
+            feather.replace();
+
+            // Joke databases
+            const jokes = [
+                "Why don't programmers like nature? It has too many bugs!",
+                "What's a programmer's favorite place? The Foo Bar!",
+                "Why do programmers always mix up Christmas and Halloween? Because Oct 31 == Dec 25!",
+                "Why do programmers prefer dark mode? Because light attracts bugs!",
+                "How many programmers does it take to change a light bulb? None, that's a hardware problem!"
+            ];
+
+            const kokes = [
+                "Why did the JavaScript developer go broke? Because he couldn't find a promise!",
+                "What's a developer's favorite tea? Proper-Tea!",
+                "Why did the function go to therapy? It had too many callbacks!",
+                "What did the computer do at lunchtime? Had a byte!",
+                "Why do programmers hate fish? Because they're always phishing!"
+            ];
+
+            // Function to get random joke
+            const getRandomJoke = (array) => {
+                return array[Math.floor(Math.random() * array.length)];
+            };
+
+            // Add click handlers for refresh buttons
+            document.querySelectorAll('.refresh-joke').forEach(button => {
+                button.addEventListener('click', (e) => {
+                    const section = e.currentTarget.dataset.section;
+                    const jokeElement = document.getElementById(`${section}-text`);
+                    const jokeArray = section === 'jokes' ? jokes : kokes;
+
+                    // Add rotation animation to the refresh icon
+                    const icon = e.currentTarget.querySelector('i');
+                    icon.style.animation = 'spin 1s linear';
+                    setTimeout(() => {
+                        icon.style.animation = '';
+                    }, 1000);
+
+                    // Update joke with fade effect
+                    jokeElement.style.opacity = '0';
+                    setTimeout(() => {
+                        jokeElement.textContent = getRandomJoke(jokeArray);
+                        jokeElement.style.opacity = '1';
+                    }, 300);
+                });
+            });
+
+            // Handle reaction buttons
+            document.querySelectorAll('.reaction-btn').forEach(button => {
+                button.addEventListener('click', (e) => {
+                    const countElement = e.currentTarget.querySelector('.reaction-count');
+                    let count = parseInt(countElement.textContent);
+                    countElement.textContent = count + 1;
+
+                    // Add animation effect
+                    button.style.transform = 'scale(1.2)';
+                    setTimeout(() => {
+                        button.style.transform = 'scale(1)';
+                    }, 200);
+                });
+            });
+        });
+
+    </script>
+</body>
+
+</html>
